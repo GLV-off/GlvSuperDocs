@@ -1,0 +1,14 @@
+=============================================
+  CodeTyphon Studio
+  Typhon IDE
+  Package Information file
+=============================================
+
+GlvSuperDocs
+
+Version: 0.0 Date: 2025-04-29 21:21
+
+
+
+
+

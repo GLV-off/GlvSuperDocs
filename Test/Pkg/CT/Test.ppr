@@ -1,0 +1,27 @@
+program Test;
+
+{$I 'test.inc'}
+
+uses
+  Classes,
+  consoletestrunner,
+  fpcunittestinsight,
+  SupDoc.Test, SupDoc.Fakes;
+
+type
+  TMyTestRunner = class(TTestRunner)
+  protected
+  end;
+
+var
+  Application: TMyTestRunner;
+
+begin
+  DefaultRunAllTests:=True;
+  DefaultFormat:=fPlain;
+  Application := TMyTestRunner.Create(nil);
+  Application.Initialize;
+  Application.Title := 'FPCUnit Console test runner';
+  Application.Run;
+  Application.Free;
+end.
