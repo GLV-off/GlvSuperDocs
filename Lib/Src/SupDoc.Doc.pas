@@ -31,7 +31,9 @@ type
 
 implementation
 
-constructor TDocBase.Create(const ARows: TRows; const ACols: TCols);
+constructor TDocBase.Create(
+  const ARows: TRows;
+  const ACols: TCols);
 begin
   inherited Create;
   FRows := ARows;

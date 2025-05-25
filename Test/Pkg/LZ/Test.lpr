@@ -6,11 +6,13 @@ uses
   Classes,
   consoletestrunner,
   fpcunittestinsight,
-  SupDoc.Test, SupDoc.Fakes;
+  SupDoc.Test;
 
 type
   TMyTestRunner = class(TTestRunner)
   protected
+    // override the protected methods
+    // of TTestRunner to customize its behavior
   end;
 
 var
@@ -24,4 +26,7 @@ begin
   Application.Title := 'FPCUnit Console test runner';
   Application.Run;
   Application.Free;
+{$IFDEF DEBUG}
+  ReadLn;
+{$ENDIF DEBUG}
 end.

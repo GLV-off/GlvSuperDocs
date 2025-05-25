@@ -6,8 +6,7 @@
     <BuildModes Active="Default"/>
     <Units>
       <Unit>
-        <Filename Value="Test.ppr"/>
-        <FRMtype Value="0"/>
+        <Filename Value="Test.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
@@ -16,11 +15,10 @@
         <UsageCount Value="20"/>
       </Unit>
       <Unit>
-        <Filename Value="..\..\Src\SupDoc.Test.pas"/>
+        <Filename Value="..\..\Src\supdoc.fpctest.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="SupDoc.FpcTest"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="0"/>
-        <WindowIndex Value="0"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>

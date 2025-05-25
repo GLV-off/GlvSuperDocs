@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="5">
+    <PathDelim Value="\"/>
+    <Name Value="GlvSuperDocs"/>
+    <Type Value="RunAndDesignTime"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <IncludeFiles Value="..\..\Src"/>
+        <OtherUnitFiles Value="..\..\Src;..\..\Src\Xlsx"/>
+        <UnitOutputDirectory Value="..\..\Out\$(TargetCPU)-$(TargetOS)\"/>
+      </SearchPaths>
+      <CodeGeneration>
+        <Optimizations>
+          <OptimizationLevel Value="0"/>
+        </Optimizations>
+      </CodeGeneration>
+    </CompilerOptions>
+    <Files>
+      <Item>
+        <Filename Value="..\..\Src\SupDoc.Cols.pas"/>
+        <UnitName Value="SupDoc.Cols"/>
+      </Item>
+      <Item>
+        <Filename Value="..\..\Src\SupDoc.Doc.pas"/>
+        <UnitName Value="SupDoc.Doc"/>
+      </Item>
+      <Item>
+        <Filename Value="..\..\Src\SupDoc.Rows.pas"/>
+        <UnitName Value="SupDoc.Rows"/>
+      </Item>
+      <Item>
+        <Filename Value="..\..\Src\Xlsx\SupDoc.Xlsx.Doc.pas"/>
+        <UnitName Value="SupDoc.Xlsx.Doc"/>
+      </Item>
+    </Files>
+    <RequiredPkgs>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>

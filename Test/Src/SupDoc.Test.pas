@@ -1,53 +1,66 @@
-unit SupDoc.Test;
+﻿unit SupDoc.Test;
 
 {$I 'test.inc'}
 
 interface
 
 uses
-  Classes,
   SysUtils,
+  Classes,
   fpcunit,
-  testutils,
   testregistry,
   SupDoc.Xlsx.Doc,
+  SupDoc.Rows,
   SupDoc.Fakes;
 
 type
-  TXlsxDocTest = class(TTestCase)
+  TXlsxRowsTest = class(TTestCase)
   protected
-    FDoc: TXlsxDoc;
-    procedure SetUp; override;
+    FRows: TRows;
+    procedure Setup; override;
     procedure TearDown; override;
   published
-    procedure TestSimulation;
+    procedure TestRowsCount;
+    procedure TestRowsAdd;
+  end;
+
+  TXlsxRowTest = class(TTestCase)
+  published
+
   end;
 
 implementation
 
-procedure TXlsxDocTest.SetUp;
+{ ==== TXlsxRowsTest ======================================================== }
+
+procedure TXlsxRowsTest.Setup;
 begin
-  FDoc := TXlsxDoc.Create(
-    TFakeRows.Create,
-    TFakeCols.Create
+  FRows := TXlsxRows.Create(
+    TXlsxRowsList.Create()
   );
 end;
 
-procedure TXlsxDocTest.TearDown;
+procedure TXlsxRowsTest.TearDown;
 begin
-  FreeAndNil(FDoc);
+  FreeAndNil(FRows);
 end;
 
-procedure TXlsxDocTest.TestSimulation;
+procedure TXlsxRowsTest.TestRowsCount;
 begin
-  FDoc.Rows.Add('first row of text');
-  CheckEquals(1, FDoc.Rows.Count);
-  CheckEquals('first row of text', FDoc.Rows.Row[0].Value);
+  CheckEquals(0, FRows.Count);
 end;
+
+procedure TXlsxRowsTest.TestRowsAdd;
+begin
+  FRows.Add('simple dimple');
+  CheckEquals(1, FRows.Count);
+end;
+
+{ =========================================================================== }
 
 initialization
 
-RegisterTest(TXlsxDocTest);
+RegisterTest(TXlsxRowsTest);
 
 end.
 
