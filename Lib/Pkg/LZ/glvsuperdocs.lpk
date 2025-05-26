@@ -10,7 +10,7 @@
       <SearchPaths>
         <IncludeFiles Value="..\..\Src"/>
         <OtherUnitFiles Value="..\..\Src;..\..\Src\Xlsx"/>
-        <UnitOutputDirectory Value="..\..\Out\$(TargetCPU)-$(TargetOS)\"/>
+        <UnitOutputDirectory Value="..\..\Out\$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
       <CodeGeneration>
         <Optimizations>
@@ -34,6 +34,10 @@
       <Item>
         <Filename Value="..\..\Src\Xlsx\SupDoc.Xlsx.Doc.pas"/>
         <UnitName Value="SupDoc.Xlsx.Doc"/>
+      </Item>
+      <Item>
+        <Filename Value="..\..\Src\SupDoc.Base.pas"/>
+        <UnitName Value="SupDoc.Base"/>
       </Item>
     </Files>
     <RequiredPkgs>

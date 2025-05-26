@@ -13,6 +13,7 @@ uses
 type
   TXlsxDoc = class(TDocBase)
   public
+
   end;
 
   TXlsxRowsList = class(TObjectList<TRow>)

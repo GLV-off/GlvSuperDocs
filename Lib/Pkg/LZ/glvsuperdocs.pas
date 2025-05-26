@@ -8,7 +8,11 @@ unit GlvSuperDocs;
 interface
 
 uses
-  SupDoc.Cols, SupDoc.Doc, SupDoc.Rows, SupDoc.Xlsx.Doc, LazarusPackageIntf;
+  SupDoc.Doc, 
+  SupDoc.Cols,  
+  SupDoc.Rows, 
+  SupDoc.Xlsx.Doc, 
+  LazarusPackageIntf;
 
 implementation
 
