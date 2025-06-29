@@ -22,7 +22,7 @@ begin
   
 end;
 
-destructor TDocObj.Destroy; override;
+destructor TDocObj.Destroy;
 begin
 inherited Destroy;  
 end;

@@ -39,6 +39,10 @@
         <Filename Value="..\..\Src\SupDoc.Base.pas"/>
         <UnitName Value="SupDoc.Base"/>
       </Item>
+      <Item>
+        <Filename Value="..\..\Src\SupDoc.Props.pas"/>
+        <UnitName Value="SupDoc.Props"/>
+      </Item>
     </Files>
     <RequiredPkgs>
       <Item>
