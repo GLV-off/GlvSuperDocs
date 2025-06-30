@@ -7,6 +7,7 @@ interface
 uses
   SupDoc.Props,
   SupDoc.Cols,
+  SupDoc.Glyph,
   SupDoc.Rows;
 
 type
@@ -18,6 +19,8 @@ type
     procedure SetDescription(const AValue: UnicodeString); virtual; abstract;
     function GetProps: TProps; virtual; abstract;
     procedure SetProps(const AValue: TProps); virtual; abstract;
+    function GetGlyphs: TGlyphs; virtual; abstract;
+    procedure SetGlyphs(const AValue: TGlyphs); virtual; abstract;
   public
     property Caption: UnicodeString
       read GetCaption
@@ -30,6 +33,10 @@ type
     property Props: TProps
       read GetProps
       write SetProps;
+
+    property Glyphs: TGlyphs
+      read GetGlyphs
+      write SetGlyphs;
   end;
 
   {
@@ -43,6 +50,8 @@ type
     procedure SetDescription(const AValue: UnicodeString); override;
     function GetProps: TProps; override;
     procedure SetProps(const AValue: TProps); override;
+    function GetGlyphs: TGlyphs; override;
+    procedure SetGlyphs(const AValue: TGlyphs); override;
   public
     constructor Create(const AOrigin: TDoc);
     destructor Destroy; override;
@@ -55,12 +64,15 @@ type
     FCaption: UnicodeString;
     FDescription: UnicodeString;
     FProps: TProps;
+    FGlyphs: TGlyphs;
     function GetCaption: UnicodeString; override;
     procedure SetCaption(const AValue: UnicodeString); override;
     function GetDescription: UnicodeString; override;
     procedure SetDescription(const AValue: UnicodeString); override;
     function GetProps: TProps; override;
     procedure SetProps(const AValue: TProps); override;
+    function GetGlyphs: TGlyphs; override;
+    procedure SetGlyphs(const AValue: TGlyphs); override;
   public
     constructor Create(
       const ACaption: UnicodeString;
@@ -117,6 +129,16 @@ begin
   FOrigin.Props := AValue;
 end;
 
+function TDocDecorated.GetGlyphs: TGlyphs;
+begin
+  Result := FOrigin.Glyphs;
+end;
+
+procedure TDocDecorated.SetGlyphs(const AValue: TGlyphs);
+begin
+  FOrigin.Glyphs := AValue;
+end;
+
 function TDocBase.GetCaption: UnicodeString;
 begin
   Result := FCaption;
@@ -149,6 +171,17 @@ begin
     FreeAndNil(FProps);
     FProps := AValue;
   end;
+end;
+
+function TDocBase.GetGlyphs: TGlyphs;
+begin
+  Result := FGlyphs;
+end;
+
+procedure TDocBase.SetGlyphs(const AValue: TGlyphs);
+begin
+  if FGlyphs <> AValue then
+    FGlyphs := AValue;
 end;
 
 constructor TDocBase.Create(

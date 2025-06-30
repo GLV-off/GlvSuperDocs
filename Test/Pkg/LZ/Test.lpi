@@ -59,6 +59,9 @@
     </RunParams>
     <RequiredPackages>
       <Item>
+        <PackageName Value="GlvTestCross"/>
+      </Item>
+      <Item>
         <PackageName Value="GlvSuperDocs"/>
       </Item>
       <Item>
@@ -80,6 +83,11 @@
       <Unit>
         <Filename Value="..\..\Src\SupDoc.Test.pas"/>
         <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\Src\supdoc.props.test.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="SupDoc.Props.Test"/>
       </Unit>
     </Units>
   </ProjectOptions>

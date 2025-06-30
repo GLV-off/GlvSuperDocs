@@ -13,6 +13,13 @@ type
   }
   TPropsDict = TDictionary<UnicodeString, UnicodeString>;
 
+
+  {
+  }
+  TPropsFilterCondition = function(
+    const AKey: UnicodeString;
+    const AValue: UnicodeString): Boolean of object;
+
   {
   }
   TProps = class abstract(TInterfacedObject)
@@ -30,9 +37,14 @@ type
       const AKey: UnicodeString;
       const AValue: UnicodeString): TProps; virtual; abstract;
 
+    function Filter(
+      const ACondition: TPropsFilterCondition): TProps; virtual; abstract;
+
     {}
-    property Prop[const AKey: UnicodeString]: UnicodeString read GetProp;
-    property Count: Int64 read GetCount;
+    property Prop[const AKey: UnicodeString]: UnicodeString
+      read GetProp;
+    property Count: Int64
+      read GetCount;
   end;
 
   {
@@ -49,13 +61,17 @@ type
     }
     function GetProp(const AKey: UnicodeString): UnicodeString; override;
   public
-    constructor Create;
+    constructor Create(const AItems: TPropsDict); overload;
+    constructor Create; overload;
     destructor Destroy; override;
 
     {}
     function Change(
       const AKey: UnicodeString;
       const AValue: UnicodeString): TProps; override;
+
+    function Filter(
+      const ACondition: TPropsFilterCondition): TProps; override;
 
     {}
     function Add(
@@ -70,10 +86,15 @@ type
 
 implementation
 
-constructor TBaseProps.Create;
+constructor TBaseProps.Create(const AItems: TPropsDict);
 begin
   inherited Create;
-  FItems := TPropsDict.Create;
+  FItems := Aitems;
+end;
+
+constructor TBaseProps.Create;
+begin
+  Self.Create(TPropsDict.Create());
 end;
 
 destructor TBaseProps.Destroy;
@@ -93,7 +114,7 @@ begin
     #1 Проверка на наличие свойства?
     #2 Бросать исключения при попытке обращения
        к несуществующему свойству? }
-  Result := FItems[AKey];
+  FItems.TryGetValue(AKey, Result);
 end;
 
 function TBaseProps.Change(
@@ -103,6 +124,20 @@ begin
   if FItems.ContainsKey(AKey) then
     FItems[AKey] := AValue;
   Result := Self;
+end;
+
+function TBaseProps.Filter(const ACondition: TPropsFilterCondition): TProps;
+var
+  Key: UnicodeString;
+  Value: UnicodeString;
+begin
+  Result := TBaseProps.Create();
+  for Key in FItems.Keys do
+  begin
+    Value := FItems[Key];
+    if Assigned(ACondition) and ACondition(Key, Value) then
+      Result.Add(Key, Value);
+  end;
 end;
 
 function TBaseProps.Add(

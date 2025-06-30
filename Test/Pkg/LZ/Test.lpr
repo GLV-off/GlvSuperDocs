@@ -6,7 +6,7 @@ uses
   Classes,
   consoletestrunner,
   fpcunittestinsight,
-  SupDoc.Test;
+  SupDoc.Test, SupDoc.Props.Test;
 
 type
   TMyTestRunner = class(TTestRunner)

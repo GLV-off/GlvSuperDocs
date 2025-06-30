@@ -7,15 +7,14 @@ interface
 uses
   SysUtils,
   Classes,
-  fpcunit,
-  testregistry,
+  Glv.Testing.Cross,
   SupDoc.Xlsx.Doc,
   SupDoc.Props,
   SupDoc.Rows,
   SupDoc.Fakes;
 
 type
-  TXlsxRowsTest = class(TTestCase)
+  TXlsxRowsTest = class(TCrossTestCase)
   protected
     FRows: TRows;
     procedure Setup; override;
@@ -25,20 +24,11 @@ type
     procedure TestRowsAdd;
   end;
 
-  TXlsxRowTest = class(TTestCase)
+  TXlsxRowTest = class(TCrossTestCase)
   published
 
   end;
 
-  TPropsTest = class(TTestCase)
-  strict protected
-    FProps: TProps;
-  protected
-    procedure SetUp; override;
-    procedure TearDown; override;
-  published
-    procedure TestAfterConstructionCountIzZero;
-  end;
 
 implementation
 
@@ -67,29 +57,9 @@ begin
   CheckEquals(1, FRows.Count);
 end;
 
-{ ==== TPropsTest =========================================================== }
-
-procedure TPropsTest.SetUp;
-begin
-  FProps := TDefProps.Create();
-end;
-
-procedure TPropsTest.TearDown;
-begin
-  FreeAndNil(FProps);
-end;
-
-procedure TPropsTest.TestAfterConstructionCountIzZero;
-begin
-  CheckEquals(0, FProps.Count);
-end;
-
-{ =========================================================================== }
-
 initialization
 
-RegisterTest(TPropsTest);
-RegisterTest(TXlsxRowsTest);
+CrossRegTest(TXlsxRowsTest);
 
 end.
 

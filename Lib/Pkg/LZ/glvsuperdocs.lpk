@@ -43,6 +43,10 @@
         <Filename Value="..\..\Src\SupDoc.Props.pas"/>
         <UnitName Value="SupDoc.Props"/>
       </Item>
+      <Item>
+        <Filename Value="..\..\Src\supdoc.glyph.pas"/>
+        <UnitName Value="supdoc.glyph"/>
+      </Item>
     </Files>
     <RequiredPkgs>
       <Item>
