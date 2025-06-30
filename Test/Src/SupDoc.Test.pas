@@ -37,7 +37,7 @@ type
     procedure SetUp; override;
     procedure TearDown; override;
   published
-    procedure TestAfterConstruction;
+    procedure TestAfterConstructionCountIzZero;
   end;
 
 implementation
@@ -79,7 +79,7 @@ begin
   FreeAndNil(FProps);
 end;
 
-procedure TPropsTest.TestAfterConstruction;
+procedure TPropsTest.TestAfterConstructionCountIzZero;
 begin
   CheckEquals(0, FProps.Count);
 end;
