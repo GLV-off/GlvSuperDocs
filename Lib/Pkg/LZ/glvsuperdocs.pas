@@ -9,7 +9,7 @@ interface
 
 uses
   SupDoc.Cols, SupDoc.Doc, SupDoc.Rows, SupDoc.Xlsx.Doc, SupDoc.Base, 
-  SupDoc.Props, SupDoc.Glyph, LazarusPackageIntf;
+  SupDoc.Props, SupDoc.Glyph, SupDoc.Factory, LazarusPackageIntf;
 
 implementation
 

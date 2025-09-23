@@ -45,7 +45,11 @@
       </Item>
       <Item>
         <Filename Value="..\..\Src\supdoc.glyph.pas"/>
-        <UnitName Value="supdoc.glyph"/>
+        <UnitName Value="SupDoc.Glyph"/>
+      </Item>
+      <Item>
+        <Filename Value="..\..\Src\SupDoc.Factory.pas"/>
+        <UnitName Value="SupDoc.Factory"/>
       </Item>
     </Files>
     <RequiredPkgs>
