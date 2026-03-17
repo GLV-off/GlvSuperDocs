@@ -77,8 +77,7 @@ type
     constructor Create(
       const ACaption: UnicodeString;
       const ADescription: UnicodeString;
-      const AProps: TProps
-    );
+      const AProps: TProps);
     destructor Destroy; override;
   end;
 

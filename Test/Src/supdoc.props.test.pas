@@ -95,7 +95,7 @@ end;
 
 initialization
 
-CrossRegTest(TPropsTest);
+CrossRegTest(TPropsTest, 'Unit');
 
 end.
 

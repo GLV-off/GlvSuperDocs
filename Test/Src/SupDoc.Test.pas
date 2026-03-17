@@ -59,7 +59,7 @@ end;
 
 initialization
 
-CrossRegTest(TXlsxRowsTest);
+CrossRegTest(TXlsxRowsTest, 'Unit');
 
 end.
 

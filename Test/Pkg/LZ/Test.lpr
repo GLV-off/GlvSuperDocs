@@ -3,29 +3,12 @@
 {$I 'test.inc'}
 
 uses
-  Classes,
-  consoletestrunner,
-  fpcunittestinsight,
-  SupDoc.Test, SupDoc.Props.Test;
-
-type
-  TMyTestRunner = class(TTestRunner)
-  protected
-    // override the protected methods
-    // of TTestRunner to customize its behavior
-  end;
-
-var
-  Application: TMyTestRunner;
+  Glv.Testing.App,
+  SupDoc.Test,
+  SupDoc.Props.Test;
 
 begin
-  DefaultRunAllTests:=True;
-  DefaultFormat:=fPlain;
-  Application := TMyTestRunner.Create(nil);
-  Application.Initialize;
-  Application.Title := 'FPCUnit Console test runner';
-  Application.Run;
-  Application.Free;
+  Glv.Testing.App.Run('Super Docs auto test''s');
 {$IFDEF DEBUG}
   ReadLn;
 {$ENDIF DEBUG}

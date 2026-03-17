@@ -24,7 +24,7 @@ end;
 
 destructor TDocObj.Destroy;
 begin
-inherited Destroy;  
+  inherited Destroy;
 end;
 
 end.
